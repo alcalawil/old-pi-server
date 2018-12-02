@@ -1,38 +1,39 @@
 {
-  "name": "pi-server",
-  "version": "1.0.0",
-  "description": "Raspberry pi server in nodejs+express to control hardware through an API",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon": "node_modules/.bin/nodemon src/server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alcalawil/pi-server.git"
-  },
-  "keywords": [
-    "raspberry",
-    "pi",
-    "IoT",
-    "node",
-    "express\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Djs",
-    "\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~express",
-    "API"
-  ],
-  "author": "Wilfredo Alcala",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alcalawil/pi-server/issues"
-  },
-  "homepage": "https://github.com/alcalawil/pi-server#readme",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "onoff": "^3.2.2"
-  },
-  "devDependencies": {
-    "dotenv": "^6.1.0",
-    "nodemon": "^1.18.7"
-  }
+	"name": "pi-server",
+	"version": "1.0.0",
+	"description": "Raspberry pi server in nodejs+express to control hardware through an API",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"nodemon": "node_modules/.bin/nodemon src/server.js",
+		"start": "node src/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alcalawil/pi-server.git"
+	},
+	"keywords": [
+		"raspberry",
+		"pi",
+		"IoT",
+		"node",
+		"express\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Djs",
+		"\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~express",
+		"API"
+	],
+	"author": "Wilfredo Alcala",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/alcalawil/pi-server/issues"
+	},
+	"homepage": "https://github.com/alcalawil/pi-server#readme",
+	"dependencies": {
+		"dotenv": "^6.1.0",
+		"body-parser": "^1.18.3",
+		"express": "^4.16.4",
+		"onoff": "^3.2.2"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.7"
+	}
 }
