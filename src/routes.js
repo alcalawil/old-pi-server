@@ -11,11 +11,10 @@ router.get('/time', (req, res) => {
 router.post('/set-led', (req, res) => {
     const value = req.body.value;
     handlers.setLed(value).then(() => {
-        res.status(200).json({
+        res.status(201).json({
             message: `LED status: ${value}`
         });
     });
 });
-
 
 module.exports = router;
