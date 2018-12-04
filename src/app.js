@@ -2,9 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 const app = express();
-
+const cors = require('cors');
 //middleware
 app.use(bodyParser.json());
+
+//Prevent CORS Errors
+app.use(cors());
+
+//Routes
 app.use('/', routes);
 
 app.use((req, res, next) => {
