@@ -1,10 +1,10 @@
-const utils = require('./utils/utils');
-const led = utils.getLedInstance(17);
+const Gpio = require('onoff');
+const led = new Gpio(17, 'out');
 
 const setLed = (value) => {
     return new Promise((resolve, reject) => {
-        led.write(value, (err) =>{
-            if(err) {
+        led.write(value, (err) => {
+            if (err) {
                 return reject(err);
             }
             resolve('Success!');
@@ -13,5 +13,5 @@ const setLed = (value) => {
 }
 
 module.exports = {
-    setLed    
+    setLed
 }
