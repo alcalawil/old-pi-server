@@ -1,38 +1,35 @@
 var awsIot = require('aws-iot-device-sdk');
-
+const config = process.env;
 class MqttService {
   constructor() {
     this.mqttClient = null;
-    this.host = 'YOUR_HOST';
-    this.username = 'YOUR_USER'; // mqtt credentials if these are needed to connect
-    this.password = 'YOUR_PASSWORD';
   }
 
   connect() {
-    // Connect mqtt with credentials (in case of needed, otherwise we can omit 2nd param)
+    if (this.mqttClient) {
+      return;
+    }
+
     this.mqttClient = awsIot.device({
-      keyPath: './certs/mm',
-      certPath: './certs/m',
-      caPath: './certs/t',
-      clientId: '',
-      host: ''
+      keyPath: './certs/node-private-key.pem',
+      certPath: './certs/node-cert.pem',
+      caPath: './certs/root-CA.crt',
+      clientId: config.CLIENT_ID,
+      host: config.HOST
     });
 
-    // Mqtt error calback
     this.mqttClient.on('error', err => {
       console.log(err);
       this.mqttClient.end();
     });
 
-    // Connection callback
     this.mqttClient.on('connect', () => {
       console.log('connect');
       this.mqttClient.subscribe('topic_1');
     });
 
-    // When a message arrives, console.log it
     this.mqttClient.on('message', function(topic, message) {
-      console.log(message.toString());
+      console.log(topic, message.toString());
     });
 
     this.mqttClient.on('close', () => {
@@ -45,4 +42,4 @@ class MqttService {
   }
 }
 
-module.exports = MqttService;
+module.exports = new MqttService();

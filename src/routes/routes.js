@@ -1,10 +1,7 @@
 const express = require('express');
 const handlers = require('../handlers');
-const MqttService = require('../services/MqttService');
+const mqttClient = require('../services/MqttService');
 const router = express.Router();
-
-const mqttClient = new MqttService();
-mqttClient.connect();
 
 router.get('/time', (req, res) => {
   res.status(200).json({

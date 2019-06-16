@@ -2,11 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes/routes');
+const mqttClient = require('./services/MqttService');
+const sensor = require('./services/SensorService');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
+// hardware configs
+mqttClient.connect();
+sensor.startReader();
 
 // Routes
 app.use('/', routes);
