@@ -1,5 +1,6 @@
 const dthSensor = require('node-dht-sensor').promises;
-const mqttClient = require('../services/MqttService');
+const mqttClient = require('./MqttService');
+const socketService = require('./SocketService');
 
 const SENSOR_TYPE = 11;
 const GPIO_NUMBER = 4;
@@ -30,6 +31,9 @@ class SensorReader {
       // Publish values
       mqttClient.sendMessage('temperature', temperature.toString());
       mqttClient.sendMessage('humidity', humidity.toString());
+
+      socketService.sendMessage('temperature', temperature);
+      socketService.sendMessage('humidity', humidity);
     }, READ_INTERVAL);
   }
 
