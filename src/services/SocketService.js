@@ -11,10 +11,7 @@ class SocketService {
 
   sendMessage = (topic, message) => {
     for (const [key, client] of Object.entries(this.clients)) {
-      client.emit('temperature', {
-        timestamp: new Date().toISOString(),
-        [topic]: message
-      });
+      client.emit(topic, [new Date().toISOString(), message]);
     }
   }
 }
